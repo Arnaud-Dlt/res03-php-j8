@@ -86,12 +86,18 @@ class User {
     
     public function addPost(Post $posts): array 
     {
-        
+        $this->posts[] = $post;
+        return $this->posts;
     }
     
     public function removePost(Post $post) : array
     {
-        
+        for ($i=0; $i<count($this->posts); $i++){
+            if ($this->posts[$i]===$post){
+                unset($this->posts[$i]);
+                return $this->posts;
+            }
+        }
     }
 }
 
